@@ -1,1 +1,3 @@
-"# Architektura Serwis¢w Internetowych 2017/2018 <br> ##Mikolaj Bronk <br> ##Wiktor Przybylowski" 
+# Architektura SerwisË˜w Internetowych 2017/2018 
+## Mikolaj Bronk 
+## Wiktor Przybylowski" 
