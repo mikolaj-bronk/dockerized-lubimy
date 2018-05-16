@@ -1,0 +1,48 @@
+<div class="modal-content">
+  <%= form_for @song, url: {action: :create} do |f| %>
+      <div class="modal-header">
+        <h4 class="modal-title">Add a Song</h4>
+      </div>
+      <div class="modal-body">
+        <p>
+          <%= "<div class=\"alert alert-danger\">#{@song.errors.full_messages.first}</div>".html_safe if @song.errors.any? %>
+        <div class="form-group">
+          <div class="row">
+            <div class="col-xs-8">
+              <label class="control-label">Songs author</label>
+              <%= f.text_field :author, class: "form-control" %>
+            </div>
+
+            <div class="col-xs-4">
+              <label class="control-label">Album</label>
+              <%= f.text_field :album, class: "form-control" %>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="row">
+            <div class="col-xs-12">
+              <label class="control-label">Name</label>
+              <%= f.text_field :name, class: "form-control" %>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="row">
+            <div class="col-xs-12">
+              <label class="control-label">Length</label>
+              <%= f.text_area :length, class: "form-control" %>
+            </div>
+          </div>
+        </div>
+
+        </p>
+      </div>
+      <div class="modal-footer">
+        <%= link_to 'Back', { controller: 'songs', action: 'index'}, class: 'btn btn-default'%>
+        <%= f.submit 'Create Song', class: "btn btn-primary" %>
+      </div>
+  <% end %>
+</div>

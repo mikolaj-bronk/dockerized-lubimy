@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  premiere_date: 2018-05-16 21:38:34
+  band: one
+
+two:
+  title: MyString
+  premiere_date: 2018-05-16 21:38:34
+  band: two
