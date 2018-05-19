@@ -1,2 +1,44 @@
-<h1>Bands#index</h1>
-<p>Find me in app/views/bands/index.html.erb</p>
+  
+<div class="modal-content">
+  <div class="modal-header">
+    <h4 class="modal-title">bands</h4>
+  </div>
+  <%= form_tag(bands_path, method: :get) do %>
+    <%= text_field_tag :term, params[:term] %>
+    <%= submit_tag 'Search', name: nil %>
+  <% end %>
+  <div class="modal-body">
+    <p>
+      <div class="btn-group">
+        <%= link_to 'Add Band', new_band_path, class: 'btn btn-success'%>
+      </div>
+    </p>
+    <table id="bands" class="display" cellspacing="0" width="100%">
+      <tr>
+        <th>Name</th>
+        <th> Date Created </th>
+        <th> Photo </th>
+      </tr>
+       <tr>
+  <% for band in @bands %>
+              <td><%= band.name %></td>
+              <td><%= band.date_created.to_time.strftime('%d - %m - %Y') %></td>
+              <td><img width="200" src="<%= band.photo %>"/></td>           
+          <td>
+              <div class="btn-group">
+                <%= link_to 'Edit', edit_band_path(band), class: 'btn btn-success' %>
+                <%= link_to 'Delete', band_path(band), method: :delete, class: 'btn btn-danger',  data:{ confirm: 'Are you sure?'} %>
+              </div>
+          </td>
+      </tr>
+  <% end %>
+</table>
+  </div>
+</div>
+<div class="apple_pagination">
+  <div class="page_info">
+    <%= page_entries_info @bands %>
+  </div>
+  <%= will_paginate @bands, :container => false %>
+</div>
+
