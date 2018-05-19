@@ -23,8 +23,9 @@
         <div class="form-group">
           <div class="row">
             <div class="col-xs-12">
-              <label class="control-label">Band Id</label>
-              <%= f.text_field :band_id, class: "form-control" %>
+              <label class="control-label">Band</label>
+            
+                <%= f.collection_select :band_id, Band.order(:name), :id, :name, {}, { class: "form-control" } %>
             </div>
           </div>
         </div>

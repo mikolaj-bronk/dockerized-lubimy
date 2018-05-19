@@ -5,7 +5,8 @@ class AlbumsController < ApplicationController
   end
 
   def show
-    @albums = Album.find(params[:id])
+    @album = Album.find(params[:id])
+    @songs = Song.where(album: @album)   
   end
 
   def new

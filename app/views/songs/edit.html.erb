@@ -1,7 +1,7 @@
 <div class="modal-content">
   <%= form_for @song, url: {action: :update} do |f| %>
       <div class="modal-header">
-        <h4 class="modal-title">Edit a Song</h4>
+        <h4 class="modal-title">Add a Song</h4>
       </div>
       <div class="modal-body">
         <p>
@@ -9,13 +9,13 @@
         <div class="form-group">
           <div class="row">
             <div class="col-xs-8">
-              <label class="control-label">Songs author</label>
-              <%= f.text_field :author, class: "form-control" %>
+              <label class="control-label">Album</label>
+              <%= f.collection_select :album_id, Album.order(:title), :id, :title, {}, { class: "form-control" } %>
             </div>
 
             <div class="col-xs-4">
-              <label class="control-label">Album</label>
-              <%= f.text_field :album, class: "form-control" %>
+              <label class="control-label">Title</label>
+              <%= f.text_field :title, class: "form-control" %>
             </div>
           </div>
         </div>
@@ -23,8 +23,8 @@
         <div class="form-group">
           <div class="row">
             <div class="col-xs-12">
-              <label class="control-label">Name</label>
-              <%= f.text_field :name, class: "form-control" %>
+              <label class="control-label">Lyrics</label>
+              <%= f.text_field :lyrics, class: "form-control" %>
             </div>
           </div>
         </div>

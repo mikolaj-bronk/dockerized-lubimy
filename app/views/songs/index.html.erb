@@ -16,27 +16,23 @@
     <table id="songs" class="display" cellspacing="0" width="100%">
       <thead>
       <tr>
-        <th>Author</th>
         <th>Album</th>
-        <th>Name</th>
+        <th>Title</th>
+        <th>Lyrics</th>
         <th>Length</th>
-        <th>Last Modified</th>
-        <th>Date Added</th>
-        <th>Actions</th>
       </tr>
       </thead>
       <tbody>
           <tr>
-            <% for song in @songs %>
-              <td><%= song.id_author %></td>
-              <td><%= song.id_album %></td>
+            <% for song in @songs %>              
+               <td><%= link_to song.album.title, song.album %></td>
               <td><%= song.title %></td>
+              <td><%= song.lyrics %></td>
               <td><%= truncate(song.length) %></td>
-              <td><%= song.updated_at %></td>
-              <td><%= song.created_at %></td>
           <td>
               <div class="btn-group">
                 <%= link_to 'Edit', edit_song_path(song), class: 'btn btn-success' %>
+                 <%= link_to 'Show', song_path(song), class: 'btn btn-primary' %>
                 <%= link_to 'Delete', song_path(song), method: :delete, class: 'btn btn-danger',  data:{ confirm: 'Are you sure?'} %>
               </div>
             </td>

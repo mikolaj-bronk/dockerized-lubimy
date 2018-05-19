@@ -1,2 +1,19 @@
-<h1>Bands#show</h1>
-<p>Find me in app/views/bands/show.html.erb</p>
+<div class="modal-content">
+  <div class="modal-body">
+    Title
+   <h2><%= @album.title %></h2>
+	<hr>
+	Premiere Date
+   <h2><%= @album.premiere_date %></h2>
+   <hr>
+   <p>Band</p>
+   <h2><%= @album.band.name %></h2>
+   <hr>
+   Songs:
+   <% for song in @songs %> 
+   <h2><%= song.title %></h2>
+   <%end%>           
+
+  </div>
+</div>
+

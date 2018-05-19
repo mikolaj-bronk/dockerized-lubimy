@@ -1,1 +1,18 @@
-<h1>Pojedynczy rekord</h1>
+<div class="modal-content">
+  <div class="modal-body">
+    Title
+   <h2><%= @song.title %></h2>
+	<hr>
+	Lyrics 
+   <h2><%= @song.lyrics %></h2>
+   <hr>
+   Length
+   <h2><%= @song.length %></h2>
+   <hr>
+   <p>Album</p>
+   <h2><%= @song.album.title %></h2>
+   <hr>       
+
+  </div>
+</div>
+

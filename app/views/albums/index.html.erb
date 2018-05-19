@@ -15,18 +15,19 @@
     </p>
     <table id="albums" class="display" cellspacing="0" width="100%">
       <tr>
-        <th>Name</th>
-        <th> Date Created </th>
-        <th> Photo </th>
+        <th>Title</th>
+        <th>Premiere </th>
+        <th>Band name </th>
       </tr>
     <tr>
   <% for album in @albums %>
               <td><%= album.title %></td>
               <td><%= album.premiere_date %></td>      
-              <td><%= album.band_id %></td>                  
+              <td><%= album.band.name %></td>                  
           <td>
               <div class="btn-group">
                 <%= link_to 'Edit', edit_album_path(album), class: 'btn btn-success' %>
+                <%= link_to 'Show',album_path(album), class: 'btn btn-primary' %>
                 <%= link_to 'Delete', album_path(album), method: :delete, class: 'btn btn-danger',  data:{ confirm: 'Are you sure?'} %>
               </div>
           </td>
