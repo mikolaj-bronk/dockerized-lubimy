@@ -1,7 +1,7 @@
 <div class="modal-content">
   <%= form_for @band, url: {action: :create} do |f| %>
       <div class="modal-header">
-        <h4 class="modal-title">Add a band</h4>
+        <h4 class="modal-title">Add band</h4>
       </div>
       <div class="modal-body">
         <p>
@@ -32,8 +32,8 @@
         </p>
       </div>
       <div class="modal-footer">
-        <%= link_to 'Back', { controller: 'bands', action: 'index'}, class: 'btn btn-default'%>
-        <%= f.submit 'Create band', class: "btn btn-primary" %>
+        <%= link_to 'Back', { controller: 'bands', action: 'index'}, class: 'btn btn-default', style: 'border-radius: 0px;'%>
+        <%= f.submit 'Create band', class: "btn btn-primary", style: 'border-radius: 0px;' %>
       </div>
   <% end %>
 </div>

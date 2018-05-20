@@ -1,19 +1,22 @@
-  
+
 <div class="modal-content">
   <div class="modal-header">
-    <h4 class="modal-title">albums</h4>
+    <h4 class="modal-title" style="color: #286090; text-align: center;">Albums</h4>
   </div>
   <%= form_tag(albums_path, method: :get) do %>
-    <%= text_field_tag :term, params[:term] %>
-    <%= submit_tag 'Search', name: nil %>
+  <div class="form-container"> 
+    <%= text_field_tag :term, params[:term], class: 'form-control form-ctr' %>
+    <%= submit_tag 'Search', name: nil, class: 'btn btn-primary btn-nav', style: 'width: 9.5%'  %> 
+  </div>
   <% end %>
-  <div class="modal-body">
-    <p>
-      <div class="btn-group">
-        <%= link_to 'Add album', new_album_path, class: 'btn btn-success'%>
-      </div>
-    </p>
-    <table id="albums" class="display" cellspacing="0" width="100%">
+
+   
+  <div class="modal-body">  
+    <hr class="hr-st">
+    <%= link_to 'Add album', new_album_path, class: 'btn btn-success btn-scs'%>
+
+    <hr class="hr-st">
+     <table id="albums" class="display" cellspacing="0" width="100%">
       <tr>
         <th>Title</th>
         <th>Premiere </th>
@@ -22,24 +25,24 @@
     <tr>
   <% for album in @albums %>
               <td><%= album.title %></td>
-              <td><%= album.premiere_date %></td>      
+              <td><%= album.premiere_date.to_time.strftime('%d - %m - %Y') %></td>      
               <td><%= album.band.name %></td>                  
           <td>
               <div class="btn-group">
-                <%= link_to 'Edit', edit_album_path(album), class: 'btn btn-success' %>
-                <%= link_to 'Show',album_path(album), class: 'btn btn-primary' %>
-                <%= link_to 'Delete', album_path(album), method: :delete, class: 'btn btn-danger',  data:{ confirm: 'Are you sure?'} %>
+                <%= link_to 'Edit', edit_album_path(album), class: 'btn btn-success', style: 'border-radius: 0px;' %>
+                <%= link_to 'Show',album_path(album), class: 'btn btn-primary', style: 'border-radius: 0px;' %>
+                <%= link_to 'Delete', album_path(album), method: :delete, class: 'btn btn-danger',  data:{ confirm: 'Are you sure?'}, style: 'border-radius: 0px;' %>
               </div>
           </td>
       </tr>
   <% end %>
 </table>
   </div>
-</div>
-<div class="apple_pagination">
-  <div class="page_info">
+  <div class="apple_pagination">
+  <div class="">
     <%= page_entries_info @albums %>
   </div>
   <%= will_paginate @albums, :container => false %>
 </div>
 
+</div>

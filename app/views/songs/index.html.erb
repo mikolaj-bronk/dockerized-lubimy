@@ -1,18 +1,22 @@
 
+
 <div class="modal-content">
   <div class="modal-header">
-    <h4 class="modal-title">Songs</h4>
+    <h4 class="modal-title" style="color: #286090; text-align: center;">Songs</h4>
   </div>
   <%= form_tag(songs_path, method: :get) do %>
-    <%= text_field_tag :term, params[:term] %>
-    <%= submit_tag 'Search', name: nil %>
+  <div class="form-container"> 
+    <%= text_field_tag :term, params[:term], class: 'form-control form-ctr' %>
+    <%= submit_tag 'Search', name: nil, class: 'btn btn-primary btn-nav', style: 'width: 9.5%'  %> 
+  </div>
   <% end %>
-  <div class="modal-body">
-    <p>
-      <div class="btn-group">
-        <%= link_to 'Add Song', new_song_path, class: 'btn btn-success'%>
-      </div>
-    </p>
+
+   
+  <div class="modal-body">  
+    <hr class="hr-st">
+    <%= link_to 'Add Song', new_song_path, class: 'btn btn-success btn-scs'%>
+
+    <hr class="hr-st">
     <table id="songs" class="display" cellspacing="0" width="100%">
       <thead>
       <tr>
@@ -23,7 +27,6 @@
       </tr>
       </thead>
       <tbody>
-          <tr>
             <% for song in @songs %>              
                <td><%= link_to song.album.title, song.album %></td>
               <td><%= song.title %></td>
@@ -31,9 +34,9 @@
               <td><%= truncate(song.length) %></td>
           <td>
               <div class="btn-group">
-                <%= link_to 'Edit', edit_song_path(song), class: 'btn btn-success' %>
+                <%= link_to 'Edit', edit_song_path(song), class: 'btn btn-success', style: 'border-radius: 0px;' %>
                  <%= link_to 'Show', song_path(song), class: 'btn btn-primary' %>
-                <%= link_to 'Delete', song_path(song), method: :delete, class: 'btn btn-danger',  data:{ confirm: 'Are you sure?'} %>
+                <%= link_to 'Delete', song_path(song), method: :delete, class: 'btn btn-danger',  data:{ confirm: 'Are you sure?'} , style: 'border-radius: 0px;' %>
               </div>
             </td>
           </tr>
@@ -41,10 +44,11 @@
       </tbody>
     </table>
   </div>
-</div>
-<div class="apple_pagination">
-  <div class="page_info">
+  <div class="apple_pagination">
+  <div class="">
     <%= page_entries_info @songs %>
   </div>
   <%= will_paginate @songs, :container => false %>
+</div>
+
 </div>

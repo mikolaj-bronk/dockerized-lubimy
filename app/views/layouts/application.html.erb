@@ -3,7 +3,7 @@
   <head>
     <title>Crud</title>
 
-    <%= stylesheet_link_tag    'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css' %>
+    <%= stylesheet_link_tag    'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' %>
     <%= stylesheet_link_tag    'https://cdn.datatables.net/s/dt/dt-1.10.10,r-2.0.0/datatables.min.css' %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -20,6 +20,7 @@
           <% if flash[:notice] %>
               <div class="alert alert-success"><%= flash[:notice] %></div>
           <% end %>
+          <%= render "layouts/header" %>
           <%= yield %>
         </div>
       </div>

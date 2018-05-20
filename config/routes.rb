@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get 'bands/show'
   get 'bands/update'
   get 'bands/destroy'
-
+  get 'index/index'
   post 'songs/create'
   get 'songs/index'
   get 'songs/show'
@@ -27,7 +27,7 @@ end
 resources :bands do
   resources :albums
 end
-  root 'songs#index'
+  root 'index#index'
   #mount Songs::SongsAPI => '/api/songs'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

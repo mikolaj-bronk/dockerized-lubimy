@@ -1,6 +1,9 @@
+
 <div class="modal-content">
   <div class="modal-body">
-    Title
+  	<h2 style="text-align: center; color:#286090;">Album details</h2>
+  	 <hr class="hr-st">
+ Title
    <h2><%= @album.title %></h2>
 	<hr>
 	Premiere Date
@@ -8,12 +11,20 @@
    <hr>
    <p>Band</p>
    <h2><%= @album.band.name %></h2>
-   <hr>
+   <hr class="hr-st">
    Songs:
-   <% for song in @songs %> 
-   <h2><%= song.title %></h2>
-   <%end%>           
+   <% @x = 0 %>
+   <% for song in @songs %>
+   <h4><%= @x = @x + 1 %><%= "." %> <%= song.title %></h4>
+   <%end%>          
+<hr class="hr-st">
+
+ <div class="modal-footer">
+        <%= link_to 'Back', { controller: 'albums', action: 'index'}, class: 'btn btn-default', style: 'border-radius: 0px;'%>        
+      </div>
+         
 
   </div>
 </div>
+
 

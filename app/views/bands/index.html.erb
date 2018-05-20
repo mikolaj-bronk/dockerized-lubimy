@@ -1,19 +1,22 @@
-  
+
 <div class="modal-content">
   <div class="modal-header">
-    <h4 class="modal-title">bands</h4>
+    <h4 class="modal-title" style="color: #286090; text-align: center;">Bands</h4>
   </div>
   <%= form_tag(bands_path, method: :get) do %>
-    <%= text_field_tag :term, params[:term] %>
-    <%= submit_tag 'Search', name: nil %>
+  <div class="form-container"> 
+    <%= text_field_tag :term, params[:term], class: 'form-control form-ctr' %>
+    <%= submit_tag 'Search', name: nil, class: 'btn btn-primary btn-nav', style: 'width: 9.5%'  %> 
+  </div>
   <% end %>
-  <div class="modal-body">
-    <p>
-      <div class="btn-group">
-        <%= link_to 'Add Band', new_band_path, class: 'btn btn-success'%>
-      </div>
-    </p>
-    <table id="bands" class="display" cellspacing="0" width="100%">
+
+   
+  <div class="modal-body">  
+    <hr class="hr-st">
+    <%= link_to 'Add band', new_band_path, class: 'btn btn-success btn-scs'%>
+
+    <hr class="hr-st">
+     <table id="bands" class="display" cellspacing="0" width="100%">
       <tr>
         <th>Name</th>
         <th> Date Created </th>
@@ -26,19 +29,19 @@
               <td><img width="200" src="<%= band.photo %>"/></td>           
           <td>
               <div class="btn-group">
-                <%= link_to 'Edit', edit_band_path(band), class: 'btn btn-success' %>
-                <%= link_to 'Delete', band_path(band), method: :delete, class: 'btn btn-danger',  data:{ confirm: 'Are you sure?'} %>
+                <%= link_to 'Edit', edit_band_path(band), class: 'btn btn-success', style: 'border-radius: 0px' %>
+                <%= link_to 'Delete', band_path(band), method: :delete, class: 'btn btn-danger',  data:{ confirm: 'Are you sure?'}, style: 'border-radius: 0px' %>
               </div>
           </td>
       </tr>
   <% end %>
 </table>
   </div>
-</div>
-<div class="apple_pagination">
-  <div class="page_info">
+  <div class="apple_pagination">
+  <div class="">
     <%= page_entries_info @bands %>
   </div>
   <%= will_paginate @bands, :container => false %>
 </div>
 
+</div>

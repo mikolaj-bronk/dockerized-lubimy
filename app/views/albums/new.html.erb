@@ -1,7 +1,7 @@
 <div class="modal-content">
   <%= form_for @album, url: {action: :create} do |f| %>
       <div class="modal-header">
-        <h4 class="modal-title">Add a album</h4>
+        <h4 class="modal-title">Add album</h4>
       </div>
       <div class="modal-body">
         <p>
@@ -33,8 +33,8 @@
         </p>
       </div>
       <div class="modal-footer">
-        <%= link_to 'Back', { controller: 'albums', action: 'index'}, class: 'btn btn-default'%>
-        <%= f.submit 'Create album', class: "btn btn-primary" %>
+        <%= link_to 'Back', { controller: 'albums', action: 'index'}, class: 'btn btn-default', style: 'border-radius: 0px;'%>
+        <%= f.submit 'Create album', class: "btn btn-primary", style: 'border-radius: 0px;' %>
       </div>
   <% end %>
 </div>
