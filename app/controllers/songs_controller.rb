@@ -17,7 +17,7 @@ class SongsController < ApplicationController
     @song = Song.new(song_params)
     if @song.save
       flash[:notice] = 'Song added.'
-      redirect_to root_path
+      redirect_to songs_path
     else
       flash[:error] = 'Failed to add the song!'
       render :new
@@ -33,7 +33,7 @@ class SongsController < ApplicationController
     @song = Song.find(params[:id])
     if @song.update_attributes(song_params)
       flash[:notice] = 'Song updated.'
-      redirect_to root_path
+      redirect_to songs_path
     else
       flash[:error] = 'Failed to update the song!'
       render :edit

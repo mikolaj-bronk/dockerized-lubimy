@@ -16,7 +16,7 @@ class BandsController < ApplicationController
     @band = Band.new(band_params)
     if @band.save
       flash[:notice] = 'band added.'
-      redirect_to root_path
+      redirect_to bands_path
     else
       flash[:error] = 'Failed to add that band!'
       render :new
@@ -32,7 +32,7 @@ class BandsController < ApplicationController
     @band = Band.find(params[:id])
     if @band.update_attributes(band_params)
       flash[:notice] = 'band updated.'
-      redirect_to root_path
+      redirect_to bands_path
     else
       flash[:error] = 'Failed to update the band!'
       render :edit

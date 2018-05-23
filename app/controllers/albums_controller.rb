@@ -17,7 +17,7 @@ class AlbumsController < ApplicationController
     @album = Album.new(album_params)
     if @album.save
       flash[:notice] = 'album added.'
-      redirect_to root_path
+      redirect_to albums_path
     else
       flash[:error] = 'Failed to add the album!'
       render :new
@@ -33,7 +33,7 @@ class AlbumsController < ApplicationController
     @album = Album.find(params[:id])
     if @album.update_attributes(album_params)
       flash[:notice] = 'album updated.'
-      redirect_to root_path
+      redirect_to albums_path
     else
       flash[:error] = 'Failed to update the album!'
       render :edit
