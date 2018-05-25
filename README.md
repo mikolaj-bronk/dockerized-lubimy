@@ -18,8 +18,8 @@
   
  # Docker
  Aby pobrać i uruchomić aplikację za pomocą obrazu docker należy podać: 
-> ``docker pull lubimy/dockerized-lubimy``  
-> ``docker run -i -t --net=host lubimy/dockerized-lubimy``
+> ``docker pull lubimy/dockerized-lubimy:lubimy``  
+> ``docker run -i -t --net=host lubimy/dockerized-lubimy:lubimy``
   
  # Możliwości  
 - Podstawowe operacje na tabelach (dodawanie, usuwanie, edytowanie)
